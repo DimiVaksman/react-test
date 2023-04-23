@@ -11,6 +11,7 @@ import { Component } from 'react';
 import {Form} from '../form';
 import {TodoEditor} from "../todos/todoEditor/todoEditor"
 import {LoginForm} from '../LoginForm/LoginForm'
+import {Modal} from '../modal/modal'
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -30,8 +31,15 @@ export class App extends Component {
       { id: 'id-3', text: 'Todo3', completed: false },
       { id: 'id-4', text: 'Todo4', completed: false },
     ],
+    showModal: false,
 
   };
+
+  toggleModal = () => {
+    this.setState(state => ({
+      showModal:  !state.showModal
+    }))
+  }
 
   addTodo = text => {
     console.log(text)
@@ -58,17 +66,26 @@ formSubmitHandle = data => {
   // }
 
   render() {
-    const { todos } = this.state;
+    const { todos,showModal } = this.state;
     return (
       <Container>
         {/* <PageTitle text="24th Core Worlds"/> */}
         {/* <EventBoard events={upcomingEvent} /> */}
         {/* <Counter initialValue={0}/> */}
-        {/* <Dropdown /> */}
+        {/* <Dropdown />
         <LoginForm />
-        {/* <ColorPicker options={colorPickerOptions} /> */}
-{/* <Form onSubmit={this.formSubmitHandle} anSubmit={this.addTodo}/> */}
-{/* <TodoEditor /> */}
+        <ColorPicker options={colorPickerOptions} />
+<Form onSubmit={this.formSubmitHandle} anSubmit={this.addTodo}/>
+<TodoEditor /> */}
+<button type='button' onClick={this.toggleModal}>Open Modal</button>
+
+{showModal && (
+<Modal onClose={this.toggleModal}>
+<h2>THIS IS MODAL</h2>
+<button type='button'onClick={this.toggleModal}>Close</button>
+</Modal> 
+)}
+
       </Container>
     );
   }

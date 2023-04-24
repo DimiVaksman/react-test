@@ -13,6 +13,16 @@ import {TodoEditor} from "../todos/todoEditor/todoEditor"
 import {LoginForm} from '../LoginForm/LoginForm'
 import {Modal} from '../modal/modal'
 
+import videos from 'videos.json'
+import {VideoList} from '../videolist/videolist'
+
+import {Player} from '../player/player'
+
+import{Reader} from '../reader/Reader'
+import publications from 'publications.json'
+
+
+
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
   { label: 'green', color: '#4CAF50' },
@@ -32,8 +42,15 @@ export class App extends Component {
       { id: 'id-4', text: 'Todo4', completed: false },
     ],
     showModal: false,
+    selectedVideo: null,
 
   };
+
+  selectVideo = link => {
+    this.setState({selectedVideo: link})
+  }
+
+
 
   toggleModal = () => {
     this.setState(state => ({
@@ -77,7 +94,7 @@ formSubmitHandle = data => {
         <ColorPicker options={colorPickerOptions} />
 <Form onSubmit={this.formSubmitHandle} anSubmit={this.addTodo}/>
 <TodoEditor /> */}
-<button type='button' onClick={this.toggleModal}>Open Modal</button>
+{/* <button type='button' onClick={this.toggleModal}>Open Modal</button>
 
 {showModal && (
 <Modal onClose={this.toggleModal}>
@@ -85,6 +102,11 @@ formSubmitHandle = data => {
 <button type='button'onClick={this.toggleModal}>Close</button>
 </Modal> 
 )}
+
+<h1>Video{this.selectedVideo}</h1>
+<VideoList videos={videos} onSelect={this.selectVideo}/>
+<Player url={this.state.selectedVideo} /> */}
+<Reader items={publications}/>
 
       </Container>
     );

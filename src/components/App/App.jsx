@@ -1,4 +1,5 @@
 import { PageTitle } from 'components/pagetitle/pageTitle';
+import { ToastContainer } from 'react-toastify';
 import { EventBoard } from 'components/eventBoard/eventBoard';
 import upcomingEvent from 'upcoming-events.json';
 import { Container } from './App.styled';
@@ -8,20 +9,20 @@ import { ColorPicker } from 'components/colorPicker/colorPicker';
 // import todos from 'todos.json';
 import { TodoList } from 'components/todos/todos';
 import { Component } from 'react';
-import {Form} from '../form';
-import {TodoEditor} from "../todos/todoEditor/todoEditor"
-import {LoginForm} from '../LoginForm/LoginForm'
-import {Modal} from '../modal/modal'
+import { Form } from '../form';
+import { TodoEditor } from '../todos/todoEditor/todoEditor';
+import { LoginForm } from '../LoginForm/LoginForm';
+import { Modal } from '../modal/modal';
 
-import videos from 'videos.json'
-import {VideoList} from '../videolist/videolist'
+import videos from 'videos.json';
+import { VideoList } from '../videolist/videolist';
 
-import {Player} from '../player/player'
+import { Player } from '../player/player';
 
-import{Reader} from '../reader/Reader'
-import publications from 'publications.json'
-
-
+import { Reader } from '../reader/Reader';
+import publications from 'publications.json';
+import PokemonForm from 'components/pokemon/pokemonForm';
+import { PokemonInfo } from 'components/pokemon/pokemonInfo';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -33,48 +34,45 @@ const colorPickerOptions = [
 ];
 
 export class App extends Component {
-
   state = {
-    todos: [
-      { id: 'id-1', text: 'Todo1', completed: false },
-      { id: 'id-2', text: 'Todo2', completed: false },
-      { id: 'id-3', text: 'Todo3', completed: false },
-      { id: 'id-4', text: 'Todo4', completed: false },
-    ],
-    showModal: false,
-    selectedVideo: null,
+    // todos: [
+    //   { id: 'id-1', text: 'Todo1', completed: false },
+    //   { id: 'id-2', text: 'Todo2', completed: false },
+    //   { id: 'id-3', text: 'Todo3', completed: false },
+    //   { id: 'id-4', text: 'Todo4', completed: false },
+    // ],
+    // showModal: false,
+    // selectedVideo: null,
 
+    pokemon: null,
+    loading: false,
+    pokemonName: '',
   };
 
-  selectVideo = link => {
-    this.setState({selectedVideo: link})
-  }
+  // selectVideo = link => {
+  //   this.setState({selectedVideo: link})
+  // }
 
+  // toggleModal = () => {
+  //   this.setState(state => ({
+  //     showModal:  !state.showModal
+  //   }))
+  // }
 
+  // addTodo = text => {
+  //   console.log(text)
+  //   const todo ={}
+  // }
 
-  toggleModal = () => {
-    this.setState(state => ({
-      showModal:  !state.showModal
-    }))
-  }
+  // deleteTodo = todoId => {
+  //   this.setState(prevState => ({
+  //     todos: prevState.todos.filter(todo => todo.id !== todoId),
+  //   }));
+  // };
 
-  addTodo = text => {
-    console.log(text)
-    const todo ={}
-  }
-
-  
-
-  deleteTodo = todoId => {
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => todo.id !== todoId),
-    }));
-  };
-
-
-formSubmitHandle = data => {
-  console.log(data)
-}
+  // formSubmitHandle = data => {
+  //   console.log(data)
+  // }
   // handleNameChange = evt => {
   //   this.setState({name: evt.currentTarget.value})
   // }
@@ -82,10 +80,19 @@ formSubmitHandle = data => {
   //   this.setState({tag: e.currentTarget.value})
   // }
 
+  // -=====================================POKEMON
+
+hendleFormSubmit = pokemonName => {
+  this.setState({pokemonName})
+}
   render() {
-    const { todos,showModal } = this.state;
+    const { todos, showModal } = this.state;
+
     return (
       <Container>
+        {/* <PokemonForm onSubmit={this.hendleFormSubmit} />
+        <PokemonInfo pokemonName={this.state.pokemonName} />
+        <ToastContainer autoClose={3000}/> */}
         {/* <PageTitle text="24th Core Worlds"/> */}
         {/* <EventBoard events={upcomingEvent} /> */}
         {/* <Counter initialValue={0}/> */}
@@ -94,7 +101,7 @@ formSubmitHandle = data => {
         <ColorPicker options={colorPickerOptions} />
 <Form onSubmit={this.formSubmitHandle} anSubmit={this.addTodo}/>
 <TodoEditor /> */}
-{/* <button type='button' onClick={this.toggleModal}>Open Modal</button>
+        {/* <button type='button' onClick={this.toggleModal}>Open Modal</button>
 
 {showModal && (
 <Modal onClose={this.toggleModal}>
@@ -106,8 +113,8 @@ formSubmitHandle = data => {
 <h1>Video{this.selectedVideo}</h1>
 <VideoList videos={videos} onSelect={this.selectVideo}/>
 <Player url={this.state.selectedVideo} /> */}
-<Reader items={publications}/>
 
+        {/* <Reader items={publications}/>*/}
       </Container>
     );
   }

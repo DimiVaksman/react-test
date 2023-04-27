@@ -7,12 +7,14 @@ import { App } from 'components/App/App';
 import { Painting } from 'components/App/App';
 import './index.css';
 import { theme } from "./contants/theme";
+import { ColectionsApp } from 'components/colections/colectionsApp';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
     <App />
+    <ColectionsApp />
     </ThemeProvider>
 
   </React.StrictMode>

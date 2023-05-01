@@ -23,6 +23,7 @@ import { Reader } from '../reader/Reader';
 import publications from 'publications.json';
 import PokemonForm from 'components/pokemon/pokemonForm';
 import { PokemonInfo } from 'components/pokemon/pokemonInfo';
+import { ColorPickerNew } from 'components/colorPicker/colorPickerNew';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -90,15 +91,17 @@ hendleFormSubmit = pokemonName => {
 
     return (
       <Container>
+
+{/* <ColorPicker options={colorPickerOptions} /> */}
+{/* <ColorPickerNew options={colorPickerOptions} /> */}
         {/* <PokemonForm onSubmit={this.hendleFormSubmit} />
         <PokemonInfo pokemonName={this.state.pokemonName} />
         <ToastContainer autoClose={3000}/> */}
         {/* <PageTitle text="24th Core Worlds"/> */}
         {/* <EventBoard events={upcomingEvent} /> */}
-        {/* <Counter initialValue={0}/> */}
+        <Counter initialValue={0}/>
         {/* <Dropdown />
         <LoginForm />
-        <ColorPicker options={colorPickerOptions} />
 <Form onSubmit={this.formSubmitHandle} anSubmit={this.addTodo}/>
 <TodoEditor /> */}
         {/* <button type='button' onClick={this.toggleModal}>Open Modal</button>

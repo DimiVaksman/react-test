@@ -21,8 +21,8 @@ import { Player } from '../player/player';
 
 import { Reader } from '../reader/Reader';
 import publications from 'publications.json';
-import PokemonForm from 'components/pokemon/pokemonForm';
-import { PokemonInfo } from 'components/pokemon/pokemonInfo';
+import {PokemonForm} from 'components/pokemon/pokemonFormHoock';
+import { PokemonInfoHoock } from 'components/pokemon/pokemonInfoHoock';
 import { ColorPickerNew } from 'components/colorPicker/colorPickerNew';
 
 const colorPickerOptions = [
@@ -95,7 +95,7 @@ hendleFormSubmit = pokemonName => {
 {/* <ColorPicker options={colorPickerOptions} /> */}
 {/* <ColorPickerNew options={colorPickerOptions} /> */}
         {/* <PokemonForm onSubmit={this.hendleFormSubmit} />
-        <PokemonInfo pokemonName={this.state.pokemonName} />
+        <PokemonInfoHoock pokemonName={this.state.pokemonName} />
         <ToastContainer autoClose={3000}/> */}
         {/* <PageTitle text="24th Core Worlds"/> */}
         {/* <EventBoard events={upcomingEvent} /> */}

@@ -6,7 +6,7 @@ const Modal = ({onClose, onEdit}) => {
         <h2>MODALKA</h2>
       <button type="button" onClick={() => {
         onEdit()
-        onClose()
+        onClose() 
       }}>UPDATE</button>
       <button type="button" onClick={onClose}>CLOSE</button>
     </div>

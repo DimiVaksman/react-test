@@ -14,8 +14,8 @@ import { HoocksApp } from 'hoocks/HoocksApp/HoocksApp';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-    {/* <App /> */}
-    <HoocksApp />
+    <App />
+    {/* <HoocksApp /> */}
     {/* <ColectionsApp /> */}
     </ThemeProvider>
 

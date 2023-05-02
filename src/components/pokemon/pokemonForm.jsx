@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const styles = { form: { marginBottom: 20 } };
 
-export default class PokemonForm extends Component {
+export class PokemonForm extends Component {
   state = {
     pokemonName: '',
   };
